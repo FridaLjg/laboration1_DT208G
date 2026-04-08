@@ -42,11 +42,16 @@ const form = document.querySelector<HTMLFormElement>('#courseform')!;
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
+  const getValue = (id: string): string => {
+    const input = document.querySelector<HTMLInputElement>(id);
+    return input ? input.value : '';
+  };
+
   const course: Courseinfo = {
-    code: (document.querySelector('#code') as HTMLInputElement).value,
-    name: (document.querySelector('#name') as HTMLInputElement).value,
-    progression: (document.querySelector('#progression') as HTMLInputElement).value,
-    syllabus: (document.querySelector('#syllabus') as HTMLInputElement).value
+    code: getValue('#code'),
+    name: getValue('#name'),
+    progression: getValue('#progression'),
+    syllabus: getValue('#syllabus')
   };
 
   addCourse(course);
