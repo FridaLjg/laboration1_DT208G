@@ -1,0 +1,17 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#table-heading {
+  font-size: 2rem;
+}
+
+th, td {
+  border: 1px solid;
+  padding: 0.5rem;
+}
+
+th {
+  background-color: #f2f2f2;
+}

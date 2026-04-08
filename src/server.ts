@@ -19,14 +19,17 @@ function deleteCourse(index: number): void {
 }
 //Uppdatera kurslista
 function updateCourseList(): void {
-  const ul = document.querySelector<HTMLUListElement>("#courselist")!;
-  ul.innerHTML = "";
+  const tbody = document.querySelector<HTMLUListElement>("#courselist")!;
+  tbody.innerHTML = "";
 
   courses.forEach((course, index) => {
-    const li = document.createElement('li');
+    const tablerow = document.createElement('tr');
 
-    li.innerHTML = `
-      ${course.code} – ${course.name} - ${course.progression} - ${course.syllabus}
+    tablerow.innerHTML = `
+      <td>${course.code}</td> 
+      <td>${course.name}</td>
+      <td>${course.progression}</td>
+      <td>${course.syllabus}</td>
     `;
 
     const deleteButton = document.createElement('button');
@@ -35,10 +38,9 @@ function updateCourseList(): void {
       deleteCourse(index);
     });
 
-    li.appendChild(deleteButton);
-    ul.appendChild(li);
+    tablerow.appendChild(deleteButton);
+    tbody.appendChild(tablerow);
   });
-
 }
 
 

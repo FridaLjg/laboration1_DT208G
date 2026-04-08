@@ -1,11 +1,23 @@
 import './style.css'
 import { addCourse } from './server.ts'
-import type { Courseinfo} from './server.ts'
+import type { Courseinfo } from './server.ts'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 <h1>Kurser</h1>
 
-<ul id="courselist"></ul>
+<table>
+  <thead id="table-heading">
+    <tr>
+      <th>Kurskod</th>
+      <th>Kursnamn</th>
+      <th>Progression</th>
+      <th>Kursplan</th>
+      <th>Radera kurs</th>
+    </tr>
+  </thead>
+
+  <tbody id="courselist"></tbody>
+</table>
 
 <h2>Lägg till kurs</h2>
 
