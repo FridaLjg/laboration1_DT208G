@@ -1,8 +1,10 @@
 import './style.css'
-import { addCourse } from './server.ts'
+import { addCourse, loadCourses } from './server.ts'
 import type { Courseinfo } from './server.ts'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+<div class=container>
+
 <h1>Kurser</h1>
 
 <table>
@@ -28,7 +30,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <input id="syllabus" placeholder="Kursplan" required />
     <button type="submit">Lägg till kurs</button>
   </form>
-
+</div>
 `;
 
 const form = document.querySelector<HTMLFormElement>('#courseform')!;
@@ -47,6 +49,8 @@ form.addEventListener('submit', (e) => {
   addCourse(course);
   form.reset();
 });
+
+loadCourses();
 
 
 

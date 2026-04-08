@@ -5,17 +5,28 @@ export interface Courseinfo {
   syllabus: string;
 }
 
-const courses: Courseinfo[] = [];
+//Ladda kurser från localStorage
+const storedItem = "courses";
+const storedCourses = localStorage.getItem(storedItem);
+const courses: Courseinfo[] = storedCourses?JSON.parse(storedCourses): [];
 
+//Spara till localStorage
+function saveCourses(): void {
+  localStorage.setItem(storedItem, JSON.stringify(courses));
+}
+
+//Lägg till kurs
 export function addCourse(course: Courseinfo): void {
   courses.push(course);
   updateCourseList();
+  saveCourses();
 }
 
 //Radera kurs
 function deleteCourse(index: number): void {
   courses.splice(index, 1);
   updateCourseList();
+  saveCourses();
 }
 //Uppdatera kurslista
 function updateCourseList(): void {
@@ -42,5 +53,11 @@ function updateCourseList(): void {
     tbody.appendChild(tablerow);
   });
 }
+
+
+export function loadCourses(): void {
+  updateCourseList();
+}
+
 
 
