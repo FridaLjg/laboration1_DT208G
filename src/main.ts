@@ -4,7 +4,6 @@ import type { Courseinfo } from './server.ts'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 <div class=container>
-
 <h1>Kurser</h1>
 
 <table>
@@ -24,10 +23,14 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 <h2>Lägg till kurs</h2>
 
   <form id="courseform">
-    <input id="code" placeholder="Kurskod" required />
-    <input id="name" placeholder="Kursnamn" required />
-    <input id="progression" placeholder="Progression" required />
-    <input id="syllabus" placeholder="Kursplan" required />
+    <label for="code">Kurskod</label>
+    <input id="code" placeholder="Kurskod" required /><br>
+    <label for="name">Kursnamn</label>
+    <input id="name" placeholder="Kursnamn" required /><br>
+    <label for="progression">Progression</label>
+    <input id="progression" placeholder="Progression" required /><br>
+    <label for="syllabus">Kursplan</label>
+    <input id="syllabus" placeholder="Kursplan" required /><br>
     <button type="submit">Lägg till kurs</button>
   </form>
 </div>

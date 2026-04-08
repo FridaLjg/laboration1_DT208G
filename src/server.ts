@@ -6,7 +6,7 @@ export interface Courseinfo {
 }
 
 //Ladda kurser från localStorage
-const storedItem = "courses";
+const storedItem: string = "courses";
 const storedCourses = localStorage.getItem(storedItem);
 const courses: Courseinfo[] = storedCourses?JSON.parse(storedCourses): [];
 
@@ -53,7 +53,6 @@ function updateCourseList(): void {
     tbody.appendChild(tablerow);
   });
 }
-
 
 export function loadCourses(): void {
   updateCourseList();
