@@ -1,4 +1,4 @@
-interface Courseinfo {
+export interface Courseinfo {
   code: string;
   name: string;
   progression: string;
@@ -9,13 +9,22 @@ const courses: Courseinfo[] = [];
 
 export function addCourse (course:Courseinfo): void {
   courses.push(course);
+  newCourse();
 }
 
-addCourse({
-  code: "DT207G",
-  name: "Webbutveckling",
-  progression: "A",
-  syllabus: "url.se"
-});
+function newCourse(): void {
+  const ul = document.querySelector<HTMLUListElement>("#courselist")!;
+  ul.innerHTML = " ";
 
-console.log(addCourse);
+  courses.forEach(course => {
+  const li = document.createElement("li");
+
+  li.innerHTML = `
+  ${course.code} - ${course.name} - ${course.progression} - ${course.syllabus}
+  `;
+
+  ul.appendChild(li);
+})
+}
+
+
