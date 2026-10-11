@@ -17,12 +17,21 @@ function saveCourses(): void {
 
 //Lägg till kurs
 export function addCourse(course: Courseinfo): void {
+  //Validerar unik kurskod
   const exists = courses.some(
     c => c.code.toLowerCase() === course.code.toLowerCase()
   );
 
   if (exists) {
     alert("Kursen finns redan!");
+    return;
+  }
+
+  //Validerar om progression är A, B eller C
+  const progression = course.progression.trim().toUpperCase();
+
+  if (!["A", "B", "C"].includes(progression)) {
+    alert("Progression måste vara A, B eller C.");
     return;
   }
 
