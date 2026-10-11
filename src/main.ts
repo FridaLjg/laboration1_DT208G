@@ -6,6 +6,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 <div class=container>
 <h1>Kurser</h1>
 
+<div class="table-wrapper">
 <table>
   <thead id="table-heading">
     <tr>
@@ -19,6 +20,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
   <tbody id="courselist"></tbody>
 </table>
+</div>
 
 <h2>Lägg till kurs</h2>
 
@@ -31,7 +33,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <input id="progression" placeholder="Progression" required /><br>
     <label for="syllabus">Kursplan</label>
     <input id="syllabus" placeholder="Kursplan" required /><br>
-    <button type="submit">Lägg till kurs</button>
+    <button type="submit" id="add-button">Lägg till kurs</button>
   </form>
 </div>
 `;

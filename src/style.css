@@ -4,7 +4,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: 'Times New Roman', Times, serif;
   background-color: rgb(238, 238, 238);
 }
 
@@ -19,15 +19,26 @@ body {
   border-radius: 1rem;
 }
 
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
+  min-width: 700px;
 }
 
 #table-heading {
   font-size: 1.2rem;
   text-align: center;
+}
+
+th {
+  background-color: rgb(80, 132, 243);
+  font-weight: bold;
 }
 
 th,
@@ -37,11 +48,11 @@ td {
   padding: 0.5rem;
 }
 
-td button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+tr:hover {
+  background-color: #ececec;
 }
+
+
 
 form {
   display: flex;
@@ -52,9 +63,42 @@ form {
   padding: 2rem;
 }
 
+#add-button {
+  background-color: rgb(25, 85, 33);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+#add-button:hover {
+  background-color: rgb(41, 134, 53);
+}
+
+form {
+  background-color: blanchedalmond;
+}
+
 input {
-width: 100%;
-padding: 0.2rem;
+  width: 100%;
+  padding: 0.2rem;
+}
+
+#delete-button {
+  background-color: rgb(168, 32, 32);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+#delete-button:hover {
+  background-color: rgb(196, 39, 39);
 }
 
 @media (max-width: 800px) {
@@ -68,18 +112,6 @@ padding: 0.2rem;
     width: auto;
     padding: 1rem;
     margin: 0 auto;
-  }
-
-  table {
-    width: 100%;
-    table-layout: fixed;
-  }
-
-  th,
-  td {
-    padding: 0.25rem;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
   }
 
   form {

@@ -62,6 +62,7 @@ function updateCourseList(): void {
     `;
 
     const deleteButton = document.createElement('button');
+    deleteButton.id = 'delete-button';
     deleteButton.textContent = 'Radera';
     deleteButton.addEventListener('click', () => {
       deleteCourse(index);
