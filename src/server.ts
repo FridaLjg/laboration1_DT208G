@@ -8,7 +8,7 @@ export interface Courseinfo {
 //Ladda kurser från localStorage
 const storedItem: string = "courses";
 const storedCourses = localStorage.getItem(storedItem);
-const courses: Courseinfo[] = storedCourses?JSON.parse(storedCourses): [];
+const courses: Courseinfo[] = storedCourses ? JSON.parse(storedCourses) : [];
 
 //Spara till localStorage
 function saveCourses(): void {
@@ -17,6 +17,15 @@ function saveCourses(): void {
 
 //Lägg till kurs
 export function addCourse(course: Courseinfo): void {
+  const exists = courses.some(
+    c => c.code.toLowerCase() === course.code.toLowerCase()
+  );
+
+  if (exists) {
+    alert("Kursen finns redan!");
+    return;
+  }
+
   courses.push(course);
   updateCourseList();
   saveCourses();
